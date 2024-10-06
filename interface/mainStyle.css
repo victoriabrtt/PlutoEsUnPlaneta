@@ -1,0 +1,285 @@
+body {
+    font-family: "Arial";
+    background-image: url('./images/web_background.webp');
+    background-size: cover;
+    color: #ffffff;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 16px;
+}
+
+header {
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topnav {
+    background-color: hsl(0, 0%, 20%);
+    overflow: hidden;
+    width: auto;
+    margin-left: auto;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #ffffff;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+
+  .topnav a:hover {
+    background-color: #583f86;
+    color: rgb(255, 255, 255);
+  }
+  
+  .topnav a.active {
+    background-color: #2a186e;
+    color: rgb(255, 255, 255);
+  }
+
+  .special-button {
+    background-color: hsl(0, 0%, 20%);
+  }
+
+  .special-button:hover{
+    background-color: #583f86;
+    color: rgb(255, 255, 255);
+  }
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Shadow for depth */
+    animation: fadeIn 0.5s; /* Fade-in effect */
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #583f86;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #2a186e;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+.card {
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 350px; 
+    height: 400px; 
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.card p {
+    color: #666;
+}
+
+.moon-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.moon-container {
+    position: relative; /* Ensure the container is positioned relatively */
+    width: 100%;
+    height: 500px;
+    margin-top: 50px;
+}
+
+.mooncard {
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 350px; 
+    height: 350px; 
+    top: 15px; /* Adjust this value to move the card closer to the top */
+    left: 50%; /* Center the card horizontally */
+    text-align: center;
+    margin-right: 100px;
+
+}
+.moonText {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between the cards */
+}
+
+.graphcard {
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 750px; 
+    height: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.graphcard img {
+    width: 700px; /* Adjust the width as needed */
+    height: 200; /* Maintain aspect ratio */
+    margin-top: 10px; /* Optional: Add some space above the image */
+}
+
+.informationContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the cards */
+    margin-right: 20px;
+}
+
+.moonContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-items: normal;
+    align-content: normal;
+    padding-left: 200px;
+}
+.sidecard {
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 250px;  
+    text-align: center;
+    margin-right: 100px;
+}
+.rightcard {
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    align-self: right;
+    align-items: center;
+}
+
+.rightcard img {
+    height: 250px;
+    margin-left: 60px;
+}
+
+.rightcard .title {
+    text-align: center;
+}
+
+.rightcard p{
+    padding-left: 4px;
+}
+
+.sidecard h3 {
+    margin-top: 0;
+    color: #fbfbfb;
+}
+
+.graphcard h2 {
+    color: white;
+}
+
+.moonContent p {
+    color:#ffffff;
+}
+
+.sidecard button {
+    border-radius: 5px;
+    background-color: #2a186e;
+    color: #ffffff;
+}
+
+header img {
+    height:50px;
+    padding: 10px;
+}
