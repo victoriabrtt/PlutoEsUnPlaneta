@@ -4,13 +4,13 @@ from obspy.signal.trigger import classic_sta_lta, trigger_onset, plot_trigger
 import numpy
 import matplotlib.pyplot as plt
 
-st = read(r"./data/mars/*.mseed")
 #st = read(r"./data/mars/*.mseed")
+st = read(r"./data/moonTest/*.mseed")
 triggers = []
 for tr in st:
-    #tr.filter('lowpass', freq=3.0)
     duration = (tr.times()[len(tr.times())-1]-tr.times()[0])
     df = tr.stats.sampling_rate
+    tr.filter('highpass', freq=0.035*df)
     nsta = duration*df*0.01
     nlta = nsta*10
     sta_lta = classic_sta_lta(tr.data, int(nsta), int(nlta))
