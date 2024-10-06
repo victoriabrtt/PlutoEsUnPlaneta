@@ -4,8 +4,6 @@ from obspy.signal.trigger import classic_sta_lta, trigger_onset, plot_trigger
 import numpy
 import matplotlib.pyplot as plt
 
-#st = read(r"./data/mars/*.mseed")
-#st = read(r"./data/moonTest/*.mseed")
 st = read(r"./file.mseed")
 triggers = []
 tr = st[0]
