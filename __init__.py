@@ -1,38 +1,40 @@
+import obspy
 from obspy import read
 from obspy.signal.trigger import classic_sta_lta, trigger_onset, plot_trigger
 import numpy
 import matplotlib.pyplot as plt
 
-nsta = 4
-nlta = 20
-
-
-st = read(r"./data/*.mseed")
+st = read(r"./data/mars/*.mseed")
+#st = read(r"./data/mars/*.mseed")
 triggers = []
 for tr in st:
+    #tr.filter('lowpass', freq=3.0)
+    duration = (tr.times()[len(tr.times())-1]-tr.times()[0])
     df = tr.stats.sampling_rate
-    sta_lta = classic_sta_lta(tr.data, int(nsta*df), int(nlta*df))
-    triggers = trigger_onset(sta_lta, 1, 0)
-    fig,ax =  plt.subplots(1,1,figsize=(12,3))
-    tr_times = tr.times()
-    ax.plot(tr_times,sta_lta)
-    ax.set_xlim([min(tr_times), max(tr_times)])
-    ax.set_xlabel("Tiempo (secs)")
-    ax.set_ylabel("Ratio STA/LTA")
+    nsta = duration*df*0.01
+    nlta = nsta*10
+    sta_lta = classic_sta_lta(tr.data, int(nsta), int(nlta))
     
-    thres_on = 1.5
-    thres_off = 1
+    thres_on = 5
+    thres_off = 0.5
     triggers = trigger_onset(sta_lta, thres_on, thres_off)
 
     on_off = numpy.array(triggers)
-    fig,ax = plt.subplots(1,1, figsize=(12,3))
     if(len(on_off)):
         print(tr)
-        '''for i in numpy.arange(0,len(on_off)):
+        fig,ax =  plt.subplots(2,1,figsize=(12,3))
+        tr_times = tr.times()
+        ax[0].plot(tr_times,sta_lta)
+        ax[0].set_xlim([min(tr_times), max(tr_times)])
+        ax[0].set_xlabel("Time (secs)")
+        ax[0].set_ylabel("Ratio STA/LTA")
+
+        for i in numpy.arange(0,len(on_off)):
             triggs = on_off[i]
-            ax.axvline(x=tr_times[triggs[0]], color='pink', label='Trig On')
-            ax.axvline(x=tr_times[triggs[1]], color='blue', label='Trig Off')
-        ax.plot(tr_times, tr.data)
-        ax.set_xlim([min(tr_times), max(tr_times)])
-        ax.legend()
-        tr.plot()'''
+            ax[1].axvline(x=tr_times[triggs[0]], color='red', label='Trig On')
+            ax[1].axvline(x=tr_times[triggs[1]], color='green', label='Trig Off')
+        ax[1].plot(tr_times, tr.data)
+        ax[1].set_xlim([min(tr_times), max(tr_times)])
+        ax[1].set_xlabel("Time (Secs)")
+        ax[1].set_ylabel("Counts")
+        plt.show()
