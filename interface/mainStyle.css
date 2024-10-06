@@ -1,0 +1,46 @@
+body {
+    font-family: "Arial";
+    background-image: url('web_background.webp');
+    background-size: cover;
+
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 16px;
+}
+
+header {
+    color: white;
+    padding: 14px 16px;
+}
+
+.topnav {
+    background-color: hsl(0, 0%, 20%);
+    overflow: hidden;
+    width: auto;
+    margin-left: auto;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #ffffff;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+
+  .topnav a:hover {
+    background-color: #583f86;
+    color: rgb(255, 255, 255);
+  }
+  
+  .topnav a.active {
+    background-color: #2a186e;
+    color: rgb(255, 255, 255);
+  }
